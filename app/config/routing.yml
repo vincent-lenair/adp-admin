@@ -1,0 +1,44 @@
+dashboard:
+    path: "/"
+    defaults:
+        _controller: AppBundle:Dashboard:dashboard
+        active_menu_1: dashboard
+    requirements:
+        _method: GET
+
+vehicule_add:
+    path: "vehicules/add"
+    defaults:
+        _controller: AppBundle:Vehicule:add
+        active_menu_1: vehicule
+        active_menu_2: vehicule_add
+    requirements:
+        _method: GET
+
+vehicule_delete:
+    path: "vehicules/delete/{vehicule_id}"
+    defaults:
+        _controller: AppBundle:Vehicule:delete
+        active_menu_1: vehicule
+        active_menu_2: vehicule_list
+    requirements:
+        _method: GET
+
+
+vehicule_edit:
+    path: "vehicules/edit/{vehicule_id}"
+    defaults:
+        _controller: AppBundle:Vehicule:edit
+        active_menu_1: vehicule
+        active_menu_2: vehicule_add
+    requirements:
+        _method: GET
+
+vehicule_list:
+    path: "vehicules"
+    defaults:
+        _controller: AppBundle:Vehicule:list
+        active_menu_1: vehicule
+        active_menu_2: vehicule_list
+    requirements:
+        _method: GET

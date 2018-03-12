@@ -1,0 +1,9 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: http://localhost
+
+services:
+    adp.vehicules.manager:
+        class: AppBundle\Manager\VehiculeManager
+        arguments: ["@guzzle.client.vehicules",  "%vehicule_image_storage_path%"]

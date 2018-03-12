@@ -1,0 +1,43 @@
+{% set active_menu_1 = app.request.get('active_menu_1')|default('') %}
+{% set active_menu_2 = app.request.get('active_menu_2')|default('') %}
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar navbar-collapse collapse">
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <li class="nav-item start {{active_menu_1 == 'dashboard' ? 'active' : ''}}">
+            <a href="{{path('dashboard')}}" class="nav-link">
+                <i class="icon-home"></i>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li class="heading">
+            <h3 class="uppercase">Gestion du site</h3>
+        </li>
+        <li class="nav-item start{{active_menu_1 == 'vehicule' ? ' active open' : ''}}">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-rocket"></i>
+                <span class="title">Vehicules</span>
+                {% if active_menu_1 == 'vehicule' %}
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                {% endif %}
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item{{active_menu_2 == 'vehicule_list' ? ' active' : ''}}">
+                    <a href="{{path('vehicule_list')}}" class="nav-link ">
+                        <i class="icon-list"></i>
+                        <span class="title">Liste des véhicules</span>
+                    </a>
+                </li>
+                <li class="nav-item{{active_menu_2 == 'vehicule_add' ? ' active' : ''}}">
+                    <a href="{{path('vehicule_add')}}" class="nav-link ">
+                        <i class="icon-plus"></i>
+                        <span class="title">Ajouter un véhicule</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR -->
